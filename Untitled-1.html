@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج شركة جرين لايت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function sendToWhatsApp() {
+            const clientName = document.getElementById('client-name').value;
+            const clientPhone = document.getElementById('client-phone').value;
+            const clientEmail = document.getElementById('client-email').value;
+            const clientAddress = document.getElementById('client-address').value;
+            const projectName = document.getElementById('project-name').value;
+            const projectDescription = document.getElementById('project-description').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const notes = document.getElementById('notes').value;
+
+            const message = `اسم العميل: ${clientName}%0A`
+                          + `رقم الهاتف: ${clientPhone}%0A`
+                          + `البريد الإلكتروني: ${clientEmail}%0A`
+                          + `العنوان: ${clientAddress}%0A`
+                          + `اسم المشروع: ${projectName}%0A`
+                          + `وصف المشروع: ${projectDescription}%0A`
+                          + `تاريخ البدء: ${startDate}%0A`
+                          + `تاريخ الانتهاء المتوقع: ${endDate}%0A`
+                          + `ملاحظات إضافية: ${notes}`;
+
+            const whatsappURL = `https://wa.me/201008338490?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="logo">
+            <img src="صورة واتساب بتاريخ 2024-10-18 في 22.41.36_7400178a.jpg" alt="شعار شركة جرين لايت">
+        </div>
+
+        <h1>نموذج شركة جرين لايت</h1>
+
+        <form onsubmit="event.preventDefault(); sendToWhatsApp();">
+            <label for="client-name">اسم العميل:</label>
+            <input type="text" id="client-name" name="client-name" required>
+
+            <label for="client-phone">رقم الهاتف:</label>
+            <input type="text" id="client-phone" name="client-phone" required>
+
+            <label for="client-email">البريد الإلكتروني:</label>
+            <input type="email" id="client-email" name="client-email" required>
+
+            <label for="client-address">العنوان:</label>
+            <input type="text" id="client-address" name="client-address" required>
+
+            <label for="project-name">اسم المشروع:</label>
+            <input type="text" id="project-name" name="project-name" required>
+
+            <label for="project-description">وصف المشروع:</label>
+            <textarea id="project-description" name="project-description" rows="4"></textarea>
+
+            <label for="start-date">تاريخ البدء:</label>
+            <input type="date" id="start-date" name="start-date" required>
+
+            <label for="end-date">تاريخ الانتهاء المتوقع:</label>
+            <input type="date" id="end-date" name="end-date" required>
+
+            <label for="notes">ملاحظات إضافية:</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+
+            <input type="button" value="إرسال" onclick="sendToWhatsApp()">
+        </form>
+    </div>
+
+</body>
+</html>
